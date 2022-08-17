@@ -10,6 +10,14 @@ img {
     border-radius: 10px;
 }
 
+.pageTitle
+{
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 .outerContainer {
     border:1px solid black;
@@ -320,7 +328,7 @@ img {
     margin:10px;
     border:1px solid black;
     background: antiquewhite;
-    line-height: 30px;
+    line-height: 25px;
 }
 .informationContainer p{
     margin:10px;

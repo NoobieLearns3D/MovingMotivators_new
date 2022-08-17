@@ -18,11 +18,17 @@ function sortData(){
         const disableselect = (e) => {  
             return false  
           }  
-
+        
         document.onselectstart = disableselect  // to disable selection, if enabled empty box or cards selected by accident was able to drag and drop
         //document.onmousedown = disableselect
         var userInfo = document.querySelector(".userInformation")
         userInfo.classList.add("hideDisplay")
+
+        var pageTitle = document.querySelector(".pageTitle")
+        pageTitle.classList.add('hideDisplay')
+
+        var copyright = document.querySelector('.copyright')
+        copyright.classList.add('hideDisplay')
 
         // videoContent = document.querySelector('.outerVideoContainer')
         // videoClose = document.querySelector('.videoCloseBtn')
@@ -418,12 +424,17 @@ function display()
 function generatePDF()
 {
     function saveAsPDF()
-    {
+    {   
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date+'_'+time;
+        var monthName = months[today.getMonth()]
+        var year = today.getFullYear()
+        var date = today.getDate()
+        var cDate = monthName+ "-" + date + "-"+year
+        console.log("Date: ",cDate)
 
+        var time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+        
         var containerOne = document.querySelector('.containerOne')
         var containerTwo = document.querySelector('.containerTwo')
         var division = document.querySelector('.division')
@@ -447,24 +458,34 @@ function generatePDF()
             var checkNamelen =  document.querySelector(".name").innerHTML
             console.log("NAME: ", checkNamelen, checkNamelen.length)
             document.querySelector(".name").innerHTML += name;
-            document.querySelector(".date").innerHTML += date;
+            document.querySelector(".date").innerHTML += cDate;
             document.querySelector(".time").innerHTML += time;
 
+            //Display title
+            var pageTitle = document.querySelector(".pageTitle")
+            pageTitle.classList.remove('hideDisplay')
+
+            //Display copyright
+            var copyright = document.querySelector('.copyright')
+            copyright.classList.remove('hideDisplay')
+    
             console.log("date: ",date, time)
 
             const shot = document.querySelector("body")
                 var opt = {
-                    margin:       1,
-                    filename:     name+"_"+dateTime+'.pdf',
+                    margin:       0,
+                    filename:     name+"_"+cDate+'.pdf',
                     image:        { type: 'jpeg', quality: 0.98 },
                     html2canvas:  { scale: 1 },
-                    jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+                    jsPDF:        { unit: 'in', format: 'A4', orientation: 'landscape' }
                 };
             console.log("Generating PDF....!!!")
                 
             html2pdf().set(opt).from(shot).save();
 
             setTimeout(() => { console.log("Actvating finish button!");finishButton.style.removeProperty('visibility');userInfo.classList.add('hideDisplay')
+            pageTitle.classList.add('hideDisplay')
+            copyright.classList.add('hideDisplay')
             document.querySelector(".name").innerHTML = "Name: ";
             document.querySelector(".date").innerHTML = "Date: ";
             document.querySelector(".time").innerHTML = "Time: ";}, 5000);         
