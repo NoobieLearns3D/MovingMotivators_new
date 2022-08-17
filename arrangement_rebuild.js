@@ -424,7 +424,6 @@ function generatePDF()
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dateTime = date+'_'+time;
 
-
         var containerOne = document.querySelector('.containerOne')
         var containerTwo = document.querySelector('.containerTwo')
         var division = document.querySelector('.division')
@@ -436,8 +435,13 @@ function generatePDF()
         finishButton.style.visibility = "hidden"
 
         var name = prompt("Name: ")
-        if(name!=null)
+        if(name == null)
         {
+            alert("Name cannot be empty")
+            finishButton.style.removeProperty("visibility")
+        }
+        else
+        {   
             var userInfo = document.querySelector(".userInformation")
             userInfo.classList.remove("hideDisplay")
             var checkNamelen =  document.querySelector(".name").innerHTML
@@ -463,11 +467,10 @@ function generatePDF()
             setTimeout(() => { console.log("Actvating finish button!");finishButton.style.removeProperty('visibility');userInfo.classList.add('hideDisplay')
             document.querySelector(".name").innerHTML = "Name: ";
             document.querySelector(".date").innerHTML = "Date: ";
-            document.querySelector(".time").innerHTML = "Time: ";}, 5000);
+            document.querySelector(".time").innerHTML = "Time: ";}, 5000);         
+
         }
-        else
-            alert("Name cannot be empty")
-            finishButton.style.removeProperty('visibility')               
+             
     }
     
 
