@@ -305,8 +305,23 @@ img {
     cursor:pointer;
 }
 
-
 .videoActive{
     visibility: visible;
     opacity:1;
+}
+
+.userInformation {
+    position:relative;
+    font-size: small;
+    font-weight: bold;
+}
+
+.informationContainer{
+    margin:10px;
+    border:1px solid black;
+    background: antiquewhite;
+    line-height: 30px;
+}
+.informationContainer p{
+    margin:10px;
 }

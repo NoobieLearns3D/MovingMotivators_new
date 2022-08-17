@@ -21,11 +21,13 @@ function sortData(){
 
         document.onselectstart = disableselect  // to disable selection, if enabled empty box or cards selected by accident was able to drag and drop
         //document.onmousedown = disableselect
-         
-        videoContent = document.querySelector('.outerVideoContainer')
-        videoClose = document.querySelector('.videoCloseBtn')
-        closeDemo = document.querySelector('.vbtn')
-        console.log("VIDEO: ", videoContent)
+        var userInfo = document.querySelector(".userInformation")
+        userInfo.classList.add("hideDisplay")
+
+        // videoContent = document.querySelector('.outerVideoContainer')
+        // videoClose = document.querySelector('.videoCloseBtn')
+        // closeDemo = document.querySelector('.vbtn')
+        // console.log("VIDEO: ", videoContent)
         
         startBtn = document.querySelector('.btn')
         closeBtn = document.querySelector('.closeBtn')
@@ -56,25 +58,29 @@ function sortData(){
 
         startBtn.addEventListener('click', function(){
             instructionContainer.classList.remove('bg-active')
-            videoContent.classList.add('videoActive')
+            let removeBlur = document.querySelector('.outerContainer')
+            removeBlur.style.filter = "none"
         })
 
         closeBtn.addEventListener('click', function(){
             instructionContainer.classList.remove('bg-active')
-            videoContent.classList.add('videoActive')
-        })
-
-        videoClose.addEventListener('click', function(){
-            videoContent.classList.remove('videoActive')
             let removeBlur = document.querySelector('.outerContainer')
             removeBlur.style.filter = "none"
         })
 
-        closeDemo.addEventListener('click', function(){
-            videoContent.classList.remove('videoActive')
-            let removeBlur = document.querySelector('.outerContainer')
-            removeBlur.style.filter = "none"
-        })
+        // video demo not required
+
+        // videoClose.addEventListener('click', function(){
+        //     videoContent.classList.remove('videoActive')
+        //     let removeBlur = document.querySelector('.outerContainer')
+        //     removeBlur.style.filter = "none"
+        // })
+
+        // closeDemo.addEventListener('click', function(){
+        //     videoContent.classList.remove('videoActive')
+        //     let removeBlur = document.querySelector('.outerContainer')
+        //     removeBlur.style.filter = "none"
+        // })
 
         cardIdNames = document.querySelectorAll('.blockOne')
         for ( i = 0 ;i < 7; i++) 
@@ -413,21 +419,56 @@ function generatePDF()
 {
     function saveAsPDF()
     {
-        const shot = document.querySelector("body")
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dateTime = date+'_'+time;
-            var opt = {
-                margin:       1,
-                filename:     'userName_'+dateTime+'.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-        console.log("Generating PDF....!!!")
+
+
+        var containerOne = document.querySelector('.containerOne')
+        var containerTwo = document.querySelector('.containerTwo')
+        var division = document.querySelector('.division')
+        var finishButton = document.querySelector('.button')
+
+        containerOne.classList.add('hideDisplay')
+        containerTwo.classList.add('hideDisplay')
+        division.classList.add('hideDisplay')
+        finishButton.style.visibility = "hidden"
+
+        var name = prompt("Name: ")
+        if(name!=null)
+        {
+            var userInfo = document.querySelector(".userInformation")
+            userInfo.classList.remove("hideDisplay")
+            var checkNamelen =  document.querySelector(".name").innerHTML
+            console.log("NAME: ", checkNamelen, checkNamelen.length)
+            document.querySelector(".name").innerHTML += name;
+            document.querySelector(".date").innerHTML += date;
+            document.querySelector(".time").innerHTML += time;
+
+            console.log("date: ",date, time)
+
+            const shot = document.querySelector("body")
+                var opt = {
+                    margin:       1,
+                    filename:     name+"_"+dateTime+'.pdf',
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 1 },
+                    jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+                };
+            console.log("Generating PDF....!!!")
+                
+            html2pdf().set(opt).from(shot).save();
             
-        html2pdf().set(opt).from(shot).save();
+
+            setTimeout(() => { console.log("Actvating finish button!");finishButton.style.removeProperty('visibility');userInfo.classList.add('hideDisplay')
+            document.querySelector(".name").innerHTML = "Name: ";
+            document.querySelector(".date").innerHTML = "Date: ";
+            document.querySelector(".time").innerHTML = "Time: ";}, 5000);
+        }
+        else
+            alert("Name cannot be empty")
+            finishButton.style.removeProperty('visibility')               
     }
     
 
