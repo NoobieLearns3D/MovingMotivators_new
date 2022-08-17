@@ -459,7 +459,6 @@ function generatePDF()
             console.log("Generating PDF....!!!")
                 
             html2pdf().set(opt).from(shot).save();
-            
 
             setTimeout(() => { console.log("Actvating finish button!");finishButton.style.removeProperty('visibility');userInfo.classList.add('hideDisplay')
             document.querySelector(".name").innerHTML = "Name: ";
