@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = text/css href = "arrangement_rebuild.css"></style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src = "arrangement_rebuild.js"></script>
+    <title>Ateerna - Moving Motivators</title>
+</head>
+   <div class = "outerContainer">
+    <body onload="gatherData.gatherDataAndInitialize()"></body>
+       <div class = "containerOne">
+           <div><img src = "cardsThree/acceptanceCard.PNG" class = "blockOne" id="myCardOne"  ></div>
+           <div><img src = "cardsThree/curiosityCard.png" class = "blockOne" id="myCardTwo" ></div>
+           <div><img src = "cardsThree/freedomCard.png" class = "blockOne" id="myCardThree" ></div>
+           <div><img src = "cardsThree/goalCard.png" class = "blockOne" id="myCardIdFour" ></div>
+           <div><img src = "cardsThree/honorCard.png" class = "blockOne" id="myCardIdFive" ></div>
+           <div><img src = "cardsThree/masteryCard.png" class = "blockOne" id="myCardIdSix" ></div>
+           <div><img src = "cardsThree/orderCard.png" class = "blockOne" id="myCardIdSeven" ></div>
+        </div>
+       <div class = "containerTwo">
+            <div><img src = "cardsThree/powerCard.png" class = "blockOne" id="myCardIdEight"  ></div>
+            <div><img src = "cardsThree/relatednessCard.png" class = "blockOne" id="myCardIdNine"  ></div>
+            <div><img src = "cardsThree/statusCard.png" class = "blockOne" id="myCardIdTen"  ></div>
+       </div>
+    <div class ="division"></div>
+       <div class ="emptyContainerOne">
+           <div class = "emptyBoxOne" id = "empty" ></div>
+           <div class = "emptyBoxTwo" id = "empty" ></div>
+           <div class = "emptyBoxThree" id = "empty" ></div>
+           <div class = "emptyBoxFour" id = "empty" ></div>
+           <div class = "emptyBoxFive" id = "empty" ></div>
+           <div class = "emptyBoxSix" id = "empty" ></div>
+           <div class = "emptyBoxSeven" id = "empty" ></div>
+       </div>
+       <div class ="emptyContainerOne">
+         <div class = "emptyBoxEight" id = "empty"></div>
+         <div class = "emptyBoxNine" id = "empty"></div>
+         <div class = "emptyBoxTen" id = "empty"></div>
+    </div>
+    </div>
+    <div id = "buttonContainer">
+        <button class = 'button'>FINISH</button>
+    </div> 
+
+    <div class = "outerVideoContainer">
+        <div class = "videoContainer">
+            <img src = "media/closeIcon.png" class = "videoCloseBtn">
+            <video class = "content" autoplay muted loop>
+                <source src = "media/movingMotivatorsInstructions_Trim.mp4" type="video/mp4" >
+            </video>
+            <button type = "submit" class = "vbtn">CLOSE DEMO</button>
+        </div>
+    </div>
+
+    <div class = "instructionContainer">
+        <div class = "popup">
+            <img src = "media/closeIcon.png" class = "closeBtn">
+            <h2>Instructions</h2>
+            <ol>
+                <li>Drag and drop cards to the empty highlighted slot.</li>
+                <li>Only one empty slot is displayed at a time.</li>
+                <li>After each successfull drop, a new highlighted empty slot is displayed.</li>
+            </ol>
+            <button type = "submit" class = "btn">PLAY DEMO</button>        
+        </div>
+    </div>
+    </div>
+
+    
+</body>
+</html>

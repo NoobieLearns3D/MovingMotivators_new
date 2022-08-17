@@ -1,0 +1,312 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+img {
+    width:145px;
+    height:145px;
+    cursor: move;
+    border-radius: 10px;
+}
+
+
+.outerContainer {
+    border:1px solid black;
+    padding: 5px;
+    height:100%;
+    filter:blur(10px);
+}
+
+.containerOne{
+    border:1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    background-color: wheat;
+}
+
+.containerOne div img {
+    background-color:#f5ae2bb2;
+    border:1px solid black;
+    border-radius: 10px;
+    padding:10px;
+    margin:10px;
+    width: 145px;
+    height:145px;
+}
+
+.containerOne img:hover{
+    transition: .3s ease-in;
+    transform: translate(100px, 100px) scale(2.0);
+    z-index:-1;
+}
+
+.containerOne #myCardIdSeven:hover{
+    transform: translate(-150px, 100px) scale(2.0);
+    z-index: -1;
+}
+
+.containerOne #myCardIdEight:hover{
+    transform: translate(-150px, 100px) scale(2.0);
+    z-index: -1;
+}
+
+.containerOne #myCardIdNine:hover{
+    transform: translate(-150px, 100px) scale(2.0);
+    z-index: -1;
+}
+
+.containerOne #myCardIdTen:hover{
+    transform: translate(-270px, 100px) scale(2.0);
+    z-index: -1;
+}
+
+.containerTwo{
+    border:1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    background-color: wheat;
+}
+
+.containerTwo div img {
+    background-color:rgba(245, 174, 43, 0.699);
+    border:1px solid black;
+    border-radius: 10px;
+    padding:10px;
+    margin:10px;
+    width: 145px;
+    height:145px;
+}
+
+.containerTwo img:hover{
+    transition: .3s ease-in;
+    transform: translate(0px, 0px) scale(2.0);
+    z-index:-1;
+}
+
+.division{
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.emptyContainerOne {
+    border:1px solid black;
+    border-radius: 10px;
+    background-color: wheat;
+    padding:10px;
+    margin:10px 5px 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+}
+
+/*
+.emptyBoxOne{
+    border:1px solid black;
+    padding:5px;
+    margin:5px;
+    width:100px;
+    height:100px;
+}
+*/
+
+.emptyContainerOne div {
+    background-color: azure;
+    /* padding:5px;*/
+    border-radius: 10px;
+    margin:5px; 
+    width: 145px;
+    height:145px;
+    cursor:not-allowed;
+}
+
+.onHover{
+    border-style: dashed;
+}
+
+.hideDisplay{
+    display:none;
+}
+
+.addBorder{
+    border: 0.5px solid green;
+}
+
+.over{
+    border:3px dotted red;
+}
+
+.hideCards {
+    display: none;
+}
+
+#buttonContainer{
+    
+    width:auto;
+    height:70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonContainer .button{
+   
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(215, 243, 215);
+    border: 1px solid green;
+    border-radius: 20px;
+    opacity:0.6;
+    width:100px;
+    height:50px;
+    cursor:not-allowed;
+}
+
+#buttonContainer .button:hover{
+    background-color: rgb(20, 224, 20);
+    border:2px solid black;
+    color:white;
+}
+
+
+.highlightAfterDisplay {
+    box-shadow: 2px 2px 20px 2px rgba(0, 255, 64, 0.651);
+}
+
+.instructionContainer{
+    position:fixed;
+    border:1px solid black;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;
+    font-family:"Poppins",sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s opacity 0.5s;
+}
+
+.bg-active{
+    visibility: visible;
+    opacity:1;
+}
+
+.popup{
+
+    position:relative;
+    padding-left: 32px;
+    border:1px solid black;
+    width:650px;
+    height: 40%;
+    border-radius: 2%;
+    background:linear-gradient(rgba(0, 0, 0, 0.377), white);
+    line-height:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    width:10rem;
+    height:2rem;
+    margin:10px;
+    border:1px solid black;
+    font-weight: bold;
+    font-family:"Poppins",sans-serif;
+    background: rgba(19, 230, 19, 0.76);
+    border-radius: 6%;
+    cursor:pointer;
+}
+
+.popup .closeBtn {
+    width:30px;
+    height:30px;
+    position:absolute;
+    top: 1px;
+    right:5px;
+    font-weight:bold;
+    font-size: large;
+    cursor:pointer;
+    background:rgba(255, 255, 255, 0.582);
+    border-radius:50%;
+
+}
+
+.outerVideoContainer{
+    position:absolute;
+    top:20%;
+    left:20%;
+    right:20%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0; 
+}
+
+.videoContainer{
+    background: rgb(230, 185, 118);
+    width:530px;
+    margin:5px;
+    padding:10px 5px 5px 5px;
+    border:1px solid black;
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width:520px;
+    
+}
+
+.videoCloseBtn{
+    width:30px;
+    height:30px;
+    position:absolute;
+    top: 1px;
+    right:5px;
+    font-weight:bold;
+    font-size: large;
+    cursor:pointer;
+    background:red;
+    border-radius:50%;
+}
+
+.vbtn {
+    position:absolute;
+    top:95%;
+    width:10rem;
+    height:3rem;
+    border:3px solid black;
+    background-color: rgb(245, 111, 62);
+    font-family: "Poppins",sans-serif;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+
+.videoActive{
+    visibility: visible;
+    opacity:1;
+}
