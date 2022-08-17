@@ -328,8 +328,13 @@ img {
     margin:10px;
     border:1px solid black;
     background: antiquewhite;
-    line-height: 25px;
+    line-height: 20px;
 }
 .informationContainer p{
-    margin:10px;
+    margin: 8px;
+}
+
+.copyright{
+    padding-left:10px;
+    font-weight: bold;
 }
