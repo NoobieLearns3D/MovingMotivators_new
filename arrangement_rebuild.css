@@ -196,6 +196,7 @@ img {
 .instructionContainer{
     position:fixed;
     border:1px solid black;
+    border-radius: 30px;
     width:100%;
     height:100vh;
     top:0;
@@ -218,13 +219,12 @@ img {
 }
 
 .popup{
-
     position:relative;
     padding-left: 32px;
     border:1px solid black;
     width:650px;
     height: 40%;
-    border-radius: 2%;
+    border-radius: 20px;
     background:linear-gradient(rgba(0, 0, 0, 0.377), white);
     line-height:50px;
     display: flex;
@@ -241,7 +241,7 @@ img {
     font-weight: bold;
     font-family:"Poppins",sans-serif;
     background: rgba(19, 230, 19, 0.76);
-    border-radius: 6%;
+    border-radius: 20px;
     cursor:pointer;
 }
 
@@ -250,7 +250,7 @@ img {
     height:30px;
     position:absolute;
     top: 1px;
-    right:5px;
+    right:2px;
     font-weight:bold;
     font-size: large;
     cursor:pointer;
@@ -259,58 +259,71 @@ img {
 
 }
 
-.outerVideoContainer{
-    position:absolute;
-    top:20%;
-    left:20%;
-    right:20%;
+.outerCopyrightContainer{
+    position:fixed;
+    border:1px solid black;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:0;
+    background-color: rgba(241, 224, 124, 0.438);
     display:flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
-    opacity: 0; 
 }
 
-.videoContainer{
-    background: rgb(230, 185, 118);
+.copyrightContainer{
+    background: linear-gradient(#eca013, white);
     width:530px;
     margin:5px;
     padding:10px 5px 5px 5px;
     border:1px solid black;
-    position:relative;
+    position:fixed;
     display:flex;
     justify-content: center;
     align-items: center;
+    border:2px solid black;
+    border-radius: 20px;
 }
 
 .content {
-    width:520px;
-    
+    font-size:larger;
+    font-weight: bold;
+    font-family: "Poppins",sans-serif;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    height:120px;
 }
 
-.videoCloseBtn{
-    width:30px;
-    height:30px;
+.copyrightCloseBtn{
+    width:25px;
+    height:25px;
     position:absolute;
-    top: 1px;
-    right:5px;
+    top: 4px;
+    right:3px;
     font-weight:bold;
     font-size: large;
     cursor:pointer;
-    background:red;
+    background:rgba(243, 212, 165, 0.993);
     border-radius:50%;
 }
 
-.vbtn {
+.nbtn {
     position:absolute;
-    top:95%;
+    top:85%;
     width:10rem;
     height:3rem;
     border:3px solid black;
-    background-color: rgb(245, 111, 62);
+    background-color: rgb(250, 155, 120);
     font-family: "Poppins",sans-serif;
     font-weight: bold;
     cursor:pointer;
+    border-radius: 30px;
+}
+
+.nbtn:hover{
+    background: rgb(245, 111, 62,1);    
 }
 
 .videoActive{
@@ -338,3 +351,56 @@ img {
     padding-left:10px;
     font-weight: bold;
 }
+
+/* re-arrangement confirmation */
+
+.confirmationContainer{
+    border:1px solid black;
+    border-radius: 20px;
+    width:380px;
+    height:100px;
+    position:fixed;
+    top:40%;
+    left:50%;
+    bottom:70%;
+    transform: translate(-50%,-50%);
+    background:linear-gradient(rgba(255, 166, 0, 0.671), white);
+    /* visibility: hidden; */
+}
+
+.confirmation{
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.confirmBtn button{
+    margin:10px;
+    height:30px;
+    width:5rem;   
+    cursor:pointer; 
+}
+
+.yBtn{
+    background: greenyellow;
+    font-size: small;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    border:1px solid black;
+    border-radius: 10px;
+}
+
+.nBtn{
+    background: rgb(235, 56, 56);
+    font-size: small;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    border:1px solid black;
+    border-radius: 10px;
+}
+

@@ -18,7 +18,7 @@ function sortData(){
         const disableselect = (e) => {  
             return false  
           }  
-        
+
         document.onselectstart = disableselect  // to disable selection, if enabled empty box or cards selected by accident was able to drag and drop
         //document.onmousedown = disableselect
         var userInfo = document.querySelector(".userInformation")
@@ -30,37 +30,53 @@ function sortData(){
         var copyright = document.querySelector('.copyright')
         copyright.classList.add('hideDisplay')
 
-        // videoContent = document.querySelector('.outerVideoContainer')
-        // videoClose = document.querySelector('.videoCloseBtn')
-        // closeDemo = document.querySelector('.vbtn')
-        // console.log("VIDEO: ", videoContent)
+        copyrightContent = document.querySelector('.outerCopyrightContainer')
+        copyrightCloseBtn = document.querySelector('.copyrightCloseBtn')
+        copyrightNextBtn = document.querySelector('.nbtn')
+        console.log("copyright: ", copyrightContent)
         
         startBtn = document.querySelector('.btn')
         closeBtn = document.querySelector('.closeBtn')
         instructionContainer = document.querySelector('.instructionContainer')
         console.log("INSTRUCTIONS: ", instructionContainer)
-        instructionContainer.classList.add('bg-active')
+        //instructionContainer.classList.add('bg-active')
+        
+        var rearrangementConfirmation = document.querySelector('.confirmationContainer')
+        rearrangementConfirmation.classList.add('hideDisplay')
+
+        var rearrangementYes = document.querySelector('.yBtn')
+        var rearrangementNo = document.querySelector('.nBtn')   
         
         var finishButton = document.querySelector('.button')
         finishButton.addEventListener('click', function(){
-        if(!confirm("Would you like to re-arrange... ?"))
-        {
-            alert("Generating PDF")
-            generatePDF.generatePDF()
-        }
-        else{
-            if(!confirm("Are you sure you want to re-arrange... ??"))
-            {
-                alert("Generating PDF")
-                generatePDF.generatePDF()
-            }
-                
-            else
-                alert("Cards can be re-arranged")
-        }
-            
+            console.log("clicked finish button",rearrangementConfirmation)
+            document.querySelector('.outerContainer').style.filter = "blur(10px)"
+            rearrangementConfirmation.classList.remove('hideDisplay')
         })
 
+        rearrangementYes.addEventListener('click',function(){
+            alert("Cards can be re-arranged")
+            rearrangementConfirmation.classList.add('hideDisplay')
+            document.querySelector('.outerContainer').style.filter = "none"
+            
+        })
+    
+        rearrangementNo.addEventListener('click',function(){
+            alert("Generating PDF")
+            document.querySelector('.outerContainer').style.filter = "none"
+            rearrangementConfirmation.classList.add('hideDisplay')
+            generatePDF.generatePDF()
+        })
+
+        copyrightNextBtn.addEventListener('click', function(){
+            copyrightContent.style.visibility = "hidden"
+            instructionContainer.classList.add('bg-active')
+        })
+
+        copyrightCloseBtn.addEventListener('click', function(){
+            copyrightContent.style.visibility = "hidden"
+            instructionContainer.classList.add('bg-active')
+        })
 
         startBtn.addEventListener('click', function(){
             instructionContainer.classList.remove('bg-active')
@@ -74,19 +90,7 @@ function sortData(){
             removeBlur.style.filter = "none"
         })
 
-        // video demo not required
-
-        // videoClose.addEventListener('click', function(){
-        //     videoContent.classList.remove('videoActive')
-        //     let removeBlur = document.querySelector('.outerContainer')
-        //     removeBlur.style.filter = "none"
-        // })
-
-        // closeDemo.addEventListener('click', function(){
-        //     videoContent.classList.remove('videoActive')
-        //     let removeBlur = document.querySelector('.outerContainer')
-        //     removeBlur.style.filter = "none"
-        // })
+        
 
         cardIdNames = document.querySelectorAll('.blockOne')
         for ( i = 0 ;i < 7; i++) 
@@ -110,6 +114,20 @@ function sortData(){
         events.deactivateFinishButton()
     }
 
+    function afterFinishButtonPress(cBox, oldNo, newNo, oldYes, newYes)
+    {
+        /* after yes button press   
+                . change innerHTML
+                .deactivate old yes button
+                .activate new yes button
+                    .new yes button press -> alert -> confirmationScreen hide -> blur remove
+         after no button press
+                .alert 
+                .blur removal
+                .generate pdf    */
+
+        
+    }
     return{
         gatherDataAndInitialize : gatherDataAndInitialize,
         cardIdNames: cardIdNames,
@@ -453,6 +471,16 @@ function generatePDF()
         }
         else
         {   
+            name = name.toLowerCase()
+            var tName = name.split(" ")
+            for (var i = 0; i < tName.length; i++) {
+                tName[i] = tName[i].charAt(0).toUpperCase() + tName[i].slice(1);
+            }
+            name = " "
+            for( i = 0;i<tName.length;i++)
+                name+=tName[i]+" "
+            console.log("FINAL NAME: ", name)
+        
             var userInfo = document.querySelector(".userInformation")
             userInfo.classList.remove("hideDisplay")
             var checkNamelen =  document.querySelector(".name").innerHTML
