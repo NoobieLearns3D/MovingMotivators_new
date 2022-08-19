@@ -16,7 +16,7 @@ function sortData(){
             alert("Closing tab")
             window.setTimeout(() => {
                 window.close()
-            },2000)
+            },150)
             
           }else{
             console.log("Normal screen")
