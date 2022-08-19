@@ -11,8 +11,9 @@ function sortData(){
     function gatherDataAndInitialize(){
         console.log("Gathering Data...!!!")
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            alert("For better experience use Desktop/Laptop");
             document.body.style.backgroundColor = "grey"
+            alert("For better experience use Desktop/Laptop");
+            window.close()
           }else{
             console.log("Normal screen")
            
