@@ -14,9 +14,7 @@ function sortData(){
             document.body.style.backgroundColor = "grey"
             alert("For better experience use Desktop/Laptop");
             alert("Closing tab")
-            window.setTimeout(() => {
-                window.close()
-            },150)
+            window.close()
             
           }else{
             console.log("Normal screen")
