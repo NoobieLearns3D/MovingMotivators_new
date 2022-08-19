@@ -12,8 +12,10 @@ function sortData(){
         console.log("Gathering Data...!!!")
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             alert("For better experience use Desktop/Laptop");
+            document.body.style.backgroundcolor = "grey"
           }else{
             console.log("Normal screen")
+           
           }
         const disableselect = (e) => {  
             return false  
