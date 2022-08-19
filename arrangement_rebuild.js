@@ -13,6 +13,7 @@ function sortData(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             document.body.style.backgroundColor = "grey"
             alert("For better experience use Desktop/Laptop");
+            alert("Closing tab")
             window.close()
           }else{
             console.log("Normal screen")
